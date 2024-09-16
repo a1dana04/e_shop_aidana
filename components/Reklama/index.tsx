@@ -2,7 +2,7 @@ import React from 'react';
 
 const Reklama: React.FC = () => {
   return (
-    <header className="w-full py-4 bg-#000000 text-white ">
+    <header className="w-full py-4 bg-black text-white ">
       <div className="container mx-auto flex justify-end  gap-64 ">
         <div className=" flex items-center justify-end  ">
           <p className="text-white text-center font-normal text-sm  ">
