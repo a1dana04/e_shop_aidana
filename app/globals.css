@@ -26,6 +26,11 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
