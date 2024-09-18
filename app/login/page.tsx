@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks';
 import Header from '@/components/Header';
 import Reklama from '@/components/Reklama';
+import Footer from '@/components/Footer';
 
 const LoginPage: React.FC = () => {
   const { user, login } = useAuth();
@@ -81,6 +82,7 @@ const LoginPage: React.FC = () => {
           </form>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
