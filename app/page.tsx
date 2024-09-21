@@ -2,11 +2,23 @@
 import { Product } from '../types/common';
 import Header from '@/components/Header';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
 import { productsAPI } from '@/lib/product';
 import { formatCurrency } from '@/utils/formatCurrency';
 import Reklama from '@/components/Reklama';
 import Footer from '@/components/Footer';
+import Category from '@/components/Category';
+import CategoryList from '@/components/Category/CategoryList';
+import Foto from '@/components/Foto';
+
+import { useEffect, useState } from 'react';
+import Hero from '@/components/Hero';
+import FlashSales from '@/components/FlashSales';
+import SalesProduct from '@/components/FlashSales/SalesProduct';
+import Browse from '@/components/Browse';
+import Music from '@/components/Music';
+import Recomen from '@/components/Recomen';
+import MonthSale from '@/components/MonthSale';
+import BestSeling from '@/components/BestSeling';
 
 const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -21,8 +33,15 @@ const Home: React.FC = () => {
 
   return (
     <>
-    <Reklama/>
+      <Reklama />
       <Header />
+
+      <Hero />
+      <Recomen />
+      <Browse />
+      <BestSeling />
+      <Music />
+
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
           <h2 className="text-3xl font-bold">Products</h2>
@@ -44,7 +63,7 @@ const Home: React.FC = () => {
                   alt={product.title}
                   width={200}
                   height={200}
-                  className="mb-4 mx-auto"
+                  className="mb-4  "
                 />
                 <h3 className="mb-2 text-2xl font-semibold">{product.title}</h3>
                 <p className="m-0 text-sm opacity-70">
@@ -55,7 +74,7 @@ const Home: React.FC = () => {
           </ul>
         )}
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 };

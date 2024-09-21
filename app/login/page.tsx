@@ -1,10 +1,10 @@
 'use client';
-import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks';
 import Header from '@/components/Header';
 import Reklama from '@/components/Reklama';
 import Footer from '@/components/Footer';
+import { useState } from 'react';
 
 const LoginPage: React.FC = () => {
   const { user, login } = useAuth();

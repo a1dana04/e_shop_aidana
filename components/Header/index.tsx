@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '@/public/assets/Exclusive-logo-header.png';
@@ -8,13 +7,13 @@ import { FiShoppingCart } from 'react-icons/fi';
 
 const Header: React.FC = () => {
   return (
-    <header className=" mx-auto w-full py-4 bg-white text-black">
-      <div className=" container flex items-center justify-between pt-8 ">
+    <header className=" mx-auto w-full  bg-white text-black mt-10">
+      <div className=" container flex items-center justify-between ">
         <Image src={logo} alt="Logo" />
         <div className=" flex gap-14 items-end">
           <Link className=' pb-0 border-b-2 border-transparent duration-75 hover:border-sky-950' href={'/'}>Home</Link>
-          <Link className='pb-0 border-b-2 border-transparent duration-75 hover:border-sky-950'  href={'/'}> Contact</Link>
-          <Link className='pb-0 border-b-2 border-transparent duration-75 hover:border-sky-950'  href={'/'}>About</Link>
+          <Link className='pb-0 border-b-2 border-transparent duration-75 hover:border-sky-950'  href={'/contact'}> Contact</Link>
+          <Link className='pb-0 border-b-2 border-transparent duration-75 hover:border-sky-950'  href={'/about'}>About</Link>
           <Link className='pb-0 border-b-2 border-transparent duration-75 hover:border-sky-950'  href={'/login'}>Sign Up</Link>
         </div>
 
@@ -35,6 +34,7 @@ const Header: React.FC = () => {
           </span>
         </div>
       </div>
+      <hr className='mt-4' />
     </header>
   );
 };
