@@ -17,8 +17,18 @@ import SalesProduct from '@/components/FlashSales/SalesProduct';
 import Browse from '@/components/Browse';
 import Music from '@/components/Music';
 import Recomen from '@/components/Recomen';
-import MonthSale from '@/components/MonthSale';
+
 import BestSeling from '@/components/BestSeling';
+
+
+import { IoIosHeart } from 'react-icons/io';
+import { IoEyeSharp } from 'react-icons/io5';
+import Star from '@/components/FlashSales/Star';
+import OurProducts from '@/components/OurProduct';
+import Featured from '@/components/Featured';
+import Arrival from '@/components/Featured/Arrival';
+import NewCardArrival from '@/components/NewCardArrival';
+
 
 const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -41,39 +51,62 @@ const Home: React.FC = () => {
       <Browse />
       <BestSeling />
       <Music />
+      <OurProducts/>
+     
 
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-          <h2 className="text-3xl font-bold">Products</h2>
+
+    <div className=' container'>
+ <ul className="flex gap-10 items-center flex-wrap  mt-8">
+        {products.map((product) => (
+          <li
+            key={product.id}
+            className="h-[400px] relative group" 
+          >
+            <div className="mb-4 group-hover:shadow-lg rounded-lg border px-16 py-11 border-gray-300 bg-gray-100 transition-shadow duration-300"> 
+             
+              <div className="absolute top-2 left-2 w-14 h-6 text-sm bg-red-500 flex justify-center items-center rounded text-white">
+                <p>-40%</p>
+              </div>
+              <div className="flex gap-2 flex-col absolute top-2 right-4">
+                <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center flex-col">
+                  <IoIosHeart />
+                </div>
+                <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center flex-col">
+                  <IoEyeSharp />
+                </div>
+              </div>
+
+              <Image
+                src={product.image}
+                alt={product.title}
+                width={200}
+                height={200}
+                className="max-w-32 h-32"
+              />
+            </div>
+            
+           
+            <h1
+              className="absolute top-48 rounded-b px-6 flex items-center justify-center w-full h-10 text-white bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            >
+              Add To Cart
+            </h1>
+
+            <h3 className="mb-2">{product.title.slice(0, 10)}</h3>
+            <p className=" text-sm opacity-70 mb-2">
+              {formatCurrency(product.price)}
+            </p>
+            <div>
+              <Star/>
+            </div>
+        
+          </li>
+        ))}
+      </ul>
+            
         </div>
-
-        {loading ? (
-          <div className="flex items-center justify-center w-full h-screen">
-            <p className="text-xl text-blue-500">Loading...</p>
-          </div>
-        ) : (
-          <ul className="grid gap-8 w-full max-w-5xl lg:grid-cols-4 lg:text-left mt-8">
-            {products.map((product) => (
-              <li
-                key={product.id}
-                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-              >
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  width={200}
-                  height={200}
-                  className="mb-4  "
-                />
-                <h3 className="mb-2 text-2xl font-semibold">{product.title}</h3>
-                <p className="m-0 text-sm opacity-70">
-                  {formatCurrency(product.price)}
-                </p>
-              </li>
-            ))}
-          </ul>
-        )}
-      </main>
+        <NewCardArrival/>
+        
       <Footer />
     </>
   );
